@@ -9,14 +9,8 @@ app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
-class Todo(BaseModel):
-    title: str
-    description: str | None = None 
-
 
 todos: List[Todo] = []
-
-
 
 
 @app.get("/")
