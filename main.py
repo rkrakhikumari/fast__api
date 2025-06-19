@@ -1,9 +1,13 @@
 from fastapi import FastAPI # type: ignore
 from pydantic import BaseModel
 from typing import List
+from database import sessionmaker , engine , SessionLocal
+from models import Todo
+from models import Base  
 
 app = FastAPI()
 
+Base.metadata.create_all(bind=engine)
 
 class Todo(BaseModel):
     title: str
